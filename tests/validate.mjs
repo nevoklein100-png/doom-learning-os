@@ -15,6 +15,7 @@ const milestones = load('content/milestones.json');
 const html = read('index.html');
 const app = read('assets/app.js');
 const state = read('assets/state.js');
+const styles = read('assets/styles.css');
 
 check(Array.isArray(phases) && phases.length > 0, 'Curriculum must contain phases');
 check(Array.isArray(resources) && resources.length > 0, 'Resources must be an array');
@@ -85,6 +86,7 @@ check(html.includes('id="phaseList"') && html.includes('id="next-action"'), 'Mis
 check(html.includes('./assets/app.js') && html.includes('./assets/styles.css'), 'Missing modular app assets');
 check(html.includes('https://nevoklein100-png.github.io/doom-learning-os/'), 'Missing canonical production URL');
 check(html.includes('class="stats-grid" role="group"'), 'Progress summary must have a valid accessible group role');
+check(styles.includes('@media(max-width:760px){.site-header .header-inner') && styles.includes('.primary-nav{display:flex;order:3;flex-basis:100%'), 'Section navigation must remain visible on small screens');
 check(!html.includes('const resources = ['), 'Curriculum still duplicated inside HTML');
 check(app.includes('./content/curriculum.json') && app.includes('./content/resources.json') && app.includes('./content/milestones.json'), 'App must load canonical JSON');
 check(state.includes("'doomLearningState'") && state.includes("'doomGlobalNotes'"), 'Legacy browser data migration missing');

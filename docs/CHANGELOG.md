@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-24 — Mobile navigation and end-to-end review
+- Added a compact mobile section-navigation row after the browser walkthrough found that the desktop header hid every section link below 760px.
+- Exercised the live next action, task persistence, search and filters, notes persistence, backup export, valid merge import, invalid import rejection, external resource navigation, and phone layouts.
+- Added a validation guard for mobile section navigation and recorded the complete walkthrough in `docs/QA_AUDIT.md`.
+
 ## 2026-09-23 — Resource and release audit
 - Corrected outdated Epic documentation paths and matched several resources to the curriculum phase they support.
 - Audited all 54 resource records; added visible access, version, check-date, and license notes. Forty-three of 45 unique URLs returned HTTP 200; two official Fab listings block automated requests and were checked through official listing results.

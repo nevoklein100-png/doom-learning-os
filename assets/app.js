@@ -85,10 +85,20 @@ function renderMilestones() {
 }
 
 function resourceUrl(value) { try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : '#'; } catch { return '#'; } }
+function resourceAccess(status) {
+  return ({
+    free_to_read: 'חינם לקריאה',
+    free_lessons: 'שיעורים חינמיים',
+    free_article_playlist: 'מאמר וסדרת וידאו חינמיים',
+    free_with_adobe_id: 'חינם עם Adobe ID',
+    free_fab_listing: 'נכס חינמי ב-Fab',
+    open_source_mit: 'קוד פתוח · MIT'
+  })[status] || 'הגישה לא אומתה';
+}
 function renderResource(resource) {
-  const needsCheck = !String(resource.verification_status).toLowerCase().includes('verified') || String(resource.verification_status).toLowerCase().includes('re-verification');
   const url = resourceUrl(resource.url);
-  return `<div class="resource-card"><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(resource.title)} ↗</a><p>${escapeHtml(resource.creator)} · ${escapeHtml(resource.description)}</p>${needsCheck ? '<p class="resource-flag">נדרשת בדיקת תוכן ורישיון לפני שימוש במשחק</p>' : ''}</div>`;
+  const linkStatus = resource.availability_status === 'http_200' ? 'קישור נבדק' : 'רישום Fab אומת · גישה אוטומטית חסומה';
+  return `<div class="resource-card"><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(resource.title)} ↗</a><p>${escapeHtml(resource.creator)} · ${escapeHtml(resource.description)}</p><p class="resource-meta"><span>${escapeHtml(resourceAccess(resource.free_status))}</span><span>${linkStatus} · ${escapeHtml(resource.last_checked)}</span></p><details class="resource-details"><summary>גרסה, בדיקה ותנאי שימוש</summary><p><strong>גרסה / זמינות:</strong> ${escapeHtml(resource.version_date)}</p><p><strong>בדיקה:</strong> ${escapeHtml(resource.verification_status)}</p><p><strong>תנאים:</strong> ${escapeHtml(resource.license_notes)}</p></details></div>`;
 }
 function phaseStatus(phase) {
   if (phaseDone(phase)) return ['הושלם', 'complete'];

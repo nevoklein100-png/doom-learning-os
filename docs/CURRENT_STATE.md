@@ -13,7 +13,7 @@ The 25 phases are no longer one unconditional prerequisite chain. Independent or
 ## Remaining limits
 
 - Progress and notes are local to one browser; backup/import is the cross-device transfer path until accounts and sync are justified.
-- All 54 resource entries still need full content and license review before their content or assets are relied on for the game. An HTTP availability check reached 40 of 42 unique URLs; two Fab listings returned 403 to the automated checker and require manual review.
+- All 54 resource records now include an individual check date, access condition, version note, and license boundary. A check of 45 unique URLs returned HTTP 200 for 43; the two Fab sample listings block automated requests (403), but their official Fab listings were found and currently identify the packs as free. Check the exact Fab license tier on acquisition, and verify technical steps when each phase becomes active. The project baseline remains Blender 4.5 LTS for continuity; Blender 5.2.2 is current, while the installed tools and project pipeline still need hands-on verification before changing that baseline.
 - The site is a project learning tool. The Unreal game, character assets, playable prototype, and project observations are not stored here yet.
 - Shared editing, role-based access, and public project showcases require a backend and security tests before implementation.
 

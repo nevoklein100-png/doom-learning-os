@@ -30,6 +30,7 @@ The site fetches the JSON files directly. Edit the JSON rather than adding conte
 python3 -m http.server 4173
 # open http://localhost:4173/
 node tests/validate.mjs
+node tests/state.mjs
 ```
 
 A local HTTP server is needed because browsers restrict JSON fetches from `file://` pages. The site has no package install or build step.
@@ -40,4 +41,4 @@ GitHub Pages serves the repository root from `main` on the [original project rep
 
 ## Next boundaries
 
-Cloud sync, login, shared workspaces, and public project views remain separate future features. They require a backend, access-control testing, and a safe import path from local state. Vercel and Supabase are candidates, not commitments. Current resource entries still require content and license review before production game use; link availability alone is not license verification.
+Cloud sync, login, shared workspaces, and public project views remain separate future features. They require a backend, access-control testing, and a safe import path from local state. Vercel and Supabase are candidates, not commitments. Resource records show link checks, access conditions, version notes, and known license boundaries. Verify technical steps and the exact asset terms again when using a resource in the game.

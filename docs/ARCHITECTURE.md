@@ -4,7 +4,7 @@
 
 Dependency-free static application published by GitHub Pages from the original `nevoklein100-png/doom-learning-os` repository. `index.html` provides semantic structure, `assets/styles.css` provides the visual system, and `assets/app.js` loads the three JSON content files. The site uses relative paths so it works under the Pages URL.
 
-`content/curriculum.json` is the phase and task source of truth. `content/resources.json` provides linked learning resources. `content/milestones.json` groups phases by observable project outcomes. The app derives the active milestone, next ready core task, prerequisite status, progress, and estimated remaining core hours from these files plus browser state. Recommended and later phases remain available but do not block core progress.
+`content/curriculum.json` is the phase and task source of truth. `content/resources.json` provides linked learning resources with checked date, access conditions, version notes, availability, and license boundaries. `content/milestones.json` groups phases by observable project outcomes. The app derives the active milestone, next ready core task, prerequisite status, progress, and estimated remaining core hours from these files plus browser state. Recommended and later phases remain available but do not block core progress.
 
 ## Personal data
 

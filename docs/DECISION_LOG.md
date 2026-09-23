@@ -3,6 +3,9 @@
 ## 2026-09-23 — Publish the canonical site from the original repository
 The original repository owner invited `NevoKlein` with Write access, the invitation was accepted, and GitHub now reports push permission. The original `nevoklein100-png/doom-learning-os` repository is canonical and hosts GitHub Pages from `main`. The fork was used temporarily while access was unavailable.
 
+## 2026-09-23 — Keep the established Blender project baseline
+Blender 5.2.2 is now the latest LTS release, while Blender 4.5 LTS remains supported through July 2027. Keep the project's 4.5 baseline until the installed tools and end-to-end asset pipeline are verified; a release-number update alone is not enough evidence to change the working project.
+
 ## 2026-09-23 — Publish a usable Learning OS now
 ### Previous approach
 Keep the early static baseline and favor small preparatory changes while the AI timing question remained open.

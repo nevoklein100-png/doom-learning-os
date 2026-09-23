@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-23 — Resource and release audit
+- Corrected outdated Epic documentation paths and matched several resources to the curriculum phase they support.
+- Audited all 54 resource records; added visible access, version, check-date, and license notes. Forty-three of 45 unique URLs returned HTTP 200; two official Fab listings block automated requests and were checked through official listing results.
+- Added dependency-free tests for browser-state migration, save failures, backup validation/merge, and corrupt-state recovery; expanded curriculum and resource validation.
+- Fixed an accessibility attribute flagged by axe and documented that per-resource metadata does not replace point-of-use technical and license checks.
+
 ## 2026-09-23 — Shareable Learning OS
 - Replaced the duplicated inline curriculum with a static, modular site that reads canonical curriculum, resource, and milestone JSON.
 - Added a milestone dashboard, exact next action, prerequisite-aware phases, specific exit criteria, task-kind labels, search, filters, progress, and notes.

@@ -1,272 +1,122 @@
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>DOOM // Game Development Learning OS</title>
-<style>
-:root{--bg:#08100d;--panel:#101b17;--panel2:#14231e;--line:#294137;--text:#edf7f1;--muted:#9fb3aa;--accent:#b5d58c;--accent2:#e0b96a;--danger:#e27a69;--shadow:0 18px 60px rgba(0,0,0,.28);--radius:20px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(1200px 500px at 80% -10%,rgba(181,213,140,.12),transparent 60%),radial-gradient(900px 500px at 10% 0%,rgba(224,185,106,.08),transparent 55%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.55}.wrap{max-width:1400px;margin:auto;padding:28px}.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(8,16,13,.82);border-bottom:1px solid rgba(41,65,55,.75)}.nav{max-width:1400px;margin:auto;padding:14px 28px;display:flex;align-items:center;gap:16px}.brand{font-weight:900;letter-spacing:.08em;font-size:15px}.brand span{color:var(--accent2)}.navlinks{display:flex;gap:8px;flex-wrap:wrap;margin-right:auto}.navlinks a,.btn{color:var(--text);text-decoration:none;border:1px solid var(--line);background:#0d1713;padding:8px 12px;border-radius:12px;font-size:13px;cursor:pointer}.navlinks a:hover,.btn:hover{border-color:#527160;background:#12221b}.hero{padding:62px 0 26px;display:grid;grid-template-columns:1.55fr .75fr;gap:22px}.hero h1{font-size:clamp(36px,6vw,76px);line-height:.98;margin:0 0 18px;max-width:920px}.hero h1 em{font-style:normal;color:var(--accent)}.hero p{color:var(--muted);font-size:18px;max-width:760px}.heroCard{background:linear-gradient(145deg,#12211b,#0d1713);border:1px solid var(--line);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow)}.heroCard h3{margin:0 0 12px;font-size:14px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent2)}.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:14px;background:#0b1411;border:1px solid var(--line);border-radius:16px}.stat b{font-size:28px}.stat span{display:block;color:var(--muted);font-size:12px}.progress{height:10px;background:#09110e;border-radius:999px;overflow:hidden;border:1px solid var(--line)}.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2))}.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0 24px}.search{flex:1;min-width:240px;background:#0b1411;border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:14px;outline:none}.select{background:#0b1411;border:1px solid var(--line);color:var(--text);padding:11px 14px;border-radius:14px}.layout{display:grid;grid-template-columns:290px 1fr;gap:24px}.side{position:sticky;top:78px;height:max-content}.sideCard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}.side h3{margin-top:0}.toc{display:flex;flex-direction:column;gap:6px}.toc a{padding:9px 10px;border-radius:10px;color:var(--muted);text-decoration:none}.toc a:hover{color:var(--text);background:#12211b}.main section{scroll-margin-top:92px;margin-bottom:28px}.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:14px}.sectionHead h2{margin:0;font-size:27px}.sectionHead p{margin:2px 0 0;color:var(--muted)}.phase{background:linear-gradient(145deg,rgba(20,35,30,.98),rgba(14,24,20,.98));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:15px}.phaseTop{display:flex;align-items:center;gap:14px;padding:18px 20px;border-bottom:1px solid var(--line)}.phaseNo{width:42px;height:42px;border-radius:13px;background:#0a120f;border:1px solid #3b5649;display:grid;place-items:center;font-weight:900;color:var(--accent2)}.phaseTop h3{margin:0;font-size:19px}.phaseTop .meta{margin-right:auto;color:var(--muted);font-size:12px}.phaseBody{padding:18px 20px}.goal{background:#0b1511;border:1px dashed #3c574a;border-radius:14px;padding:13px 14px;margin-bottom:14px;color:#d8e5df}.checks{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.checkpill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#0b1511;padding:8px 10px;border-radius:12px;font-size:13px}.checkpill input{accent-color:#b5d58c}.resources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.resource{background:#0a1411;border:1px solid var(--line);border-radius:16px;padding:15px}.rhead{display:flex;gap:8px;align-items:flex-start}.rtype{font-size:11px;padding:4px 7px;border-radius:8px;background:#1a2c24;color:var(--accent);border:1px solid #3a5648}.resource h4{margin:0;font-size:15px}.resource p{margin:9px 0;color:var(--muted);font-size:13px}.rmeta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.tag{font-size:10px;padding:4px 6px;border-radius:7px;background:#111c18;border:1px solid #283d34;color:#a9bdb4}.resource a{display:inline-flex;margin-top:6px;color:#dcefcf;text-decoration:none;font-size:13px}.resource a:hover{text-decoration:underline}.exit{margin-top:14px;background:linear-gradient(90deg,#15261f,#101b17);border:1px solid #375246;padding:12px 14px;border-radius:13px;font-size:13px}.exit b{color:var(--accent2)}.notes{width:100%;min-height:70px;background:#0a1411;border:1px solid var(--line);border-radius:13px;color:var(--text);padding:10px;margin-top:10px;resize:vertical}.week{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.weekCard{background:var(--panel);border:1px solid var(--line);padding:16px;border-radius:16px}.weekCard b{display:block;margin-bottom:6px;color:var(--accent)}.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.rnode{padding:12px;background:#0b1411;border:1px solid var(--line);border-radius:14px;min-height:102px}.rnode strong{display:block;color:var(--accent2);font-size:11px}.rnode span{display:block;margin-top:8px;font-size:13px}.footer{padding:28px 0 70px;color:var(--muted);font-size:12px}.hidden{display:none!important}.modal{position:fixed;inset:0;background:rgba(0,0,0,.66);display:none;place-items:center;z-index:100}.modal.open{display:grid}.modalBox{max-width:760px;width:calc(100% - 30px);background:#0e1915;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}.modalBox h3{margin-top:0}.code{background:#070d0a;border:1px solid #263a31;border-radius:12px;padding:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;font-size:11px;color:#c7d7cf;max-height:310px;overflow:auto}.small{font-size:11px;color:var(--muted)}@media(max-width:1050px){.hero{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.side{position:static}.resources{grid-template-columns:1fr}.roadmap{grid-template-columns:repeat(2,1fr)}.week{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.wrap{padding:18px}.nav{padding:11px 18px}.navlinks{display:none}.mini{grid-template-columns:1fr}.roadmap,.week{grid-template-columns:1fr}.hero{padding-top:38px}.phaseTop{align-items:flex-start}.phaseTop .meta{margin-right:0}.sectionHead{display:block}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a100e">
+  <meta name="description" content="מערכת הלמידה והבנייה של משחק Doctor Doom: אבני דרך, פעולה הבאה, משאבים והתקדמות אישית.">
+  <meta property="og:title" content="DOOM // Learning OS">
+  <meta property="og:description" content="לומדים, בונים ובודקים את הבסיס למשחק Doctor Doom — צעד אחד בכל פעם.">
+  <meta property="og:type" content="website">
+  <title>DOOM // Learning OS</title>
+  <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/styles.css">
+  <script type="module" src="./assets/app.js"></script>
 </head>
 <body>
-<details style="max-width:1400px;margin:14px auto 0;padding:0 28px">
-<summary style="cursor:pointer;color:#e0b96a;font-weight:800;padding:10px 0">CODEX // MASTER CONTROL — הוראות עבודה, מחקר ושדרוג</summary>
-<div style="background:#0e1915;border:1px solid #294137;border-radius:18px;padding:18px;box-shadow:0 18px 60px rgba(0,0,0,.24);margin-bottom:14px">
-<p style="margin-top:0"><b>המטרה:</b> האתר הוא מערכת לימוד חיה לפרויקט משחק Doctor Doom. Codex רשאי לשפר קוד, מחקר, תוכן, UX, עיצוב, ארכיטקטורה ופיצ׳רים, אך חייב לקרוא את המצב הקיים, לאמת מידע ולשמור על תאימות. <a href="https://github.com/nevoklein100-png/doom-learning-os/blob/main/docs/CODEX_HANDOFF_PROJECT_CHANGE.md" target="_blank" rel="noopener" style="color:#b5d58c">פתח את ה-Handoff המלא של שינוי הכיוון ↗</a></p>
-<textarea id="codexPrompt" class="notes" style="min-height:560px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;direction:ltr;text-align:left" readonly># CODEX MASTER INSTRUCTIONS — DOOM LEARNING OS
+  <a class="skip-link" href="#main">דלג לתוכן</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="DOOM Learning OS — חזרה להתחלה">
+        <img src="./assets/mark.svg" alt="" width="40" height="40">
+        <span><strong>DOOM</strong><small>LEARNING OS</small></span>
+      </a>
+      <nav class="primary-nav" aria-label="ניווט ראשי">
+        <a href="#dashboard">מבט על</a>
+        <a href="#roadmap">אבני דרך</a>
+        <a href="#curriculum">מסלול לימוד</a>
+        <a href="#workspace">מרחב עבודה</a>
+      </nav>
+      <button class="header-share" id="shareButton" type="button" aria-label="שתף את האתר"><span aria-hidden="true">↗</span> שתף</button>
+    </div>
+  </header>
 
-MISSION
-Maintain and continuously improve this website for the Doctor Doom game-development learning project. Treat the repository as a living product, not a one-off HTML page.
+  <main id="main">
+    <section class="hero shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="overline"><span class="signal-dot"></span> PROJECT DOOM / FIELD GUIDE</p>
+          <h1 id="hero-title">לא רק ללמוד.<br><em>לבנות את Doom.</em></h1>
+          <p class="hero-lede">מסלול מעשי מהצעד הראשון ב־Unreal עד לדמות שאפשר לשחק, להרגיש ולשפר. לומדים את מה שצריך עכשיו, בונים משהו אמיתי, בודקים וממשיכים.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#next-action">הפעולה הבאה <span aria-hidden="true">←</span></a>
+            <a class="button button-ghost" href="#roadmap">לראות את הדרך</a>
+          </div>
+          <div class="hero-principle"><span aria-hidden="true">✦</span><span>היעד הראשון: דמות Doom ניתנת לשליטה, עם תנועה, מצלמה, אנימציה ופעולה אחת שמרגישה נכון.</span></div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+          <div class="visual-card">
+            <span class="visual-code">D/01</span>
+            <svg viewBox="0 0 260 340" role="presentation"><path d="M130 20 186 55 202 130 222 300 164 310 149 233 111 233 96 310 38 300 58 130 74 55Z" fill="#172c23" stroke="#97bd7d" stroke-width="2"/><path d="M92 72 130 48 168 72 164 123 145 145 115 145 96 123Z" fill="#1f3b2b" stroke="#cfb77b" stroke-width="2"/><path d="M96 103 118 108 130 101 142 108 164 103M113 125h34" stroke="#b9cf9b" stroke-width="3" fill="none"/><path d="M74 57 52 83 39 263M186 57l22 26 13 180" stroke="#c4a968" stroke-width="2" fill="none"/><path d="M85 157h90M102 200h56" stroke="#527c60" stroke-width="2"/><path d="M60 137 38 281M200 137l22 144" stroke="#718b64" stroke-width="2"/></svg>
+            <span class="visual-caption">BUILD THE FOUNDATION</span>
+          </div>
+          <span class="visual-coordinate visual-coordinate-top">LATVERIA // 00.01</span>
+          <span class="visual-coordinate visual-coordinate-bottom">CHARACTER FIRST · SYSTEMS SECOND</span>
+        </div>
+      </div>
+    </section>
 
-FIRST ACTIONS — ALWAYS
-1. Read the entire repository before changing anything.
-2. Read README, project-rule files, research notes, architecture docs, curriculum data and changelog files.
-3. Identify the source of truth for curriculum content, UI/design, progress, research and configuration.
-4. Inspect existing behavior before changing it.
-5. For research-dependent changes, verify current versions, URLs, licensing and workflows first.
-6. Make a concise plan and define how the change will be tested.
-7. Make the smallest safe change unless a larger refactor is clearly justified.
-8. Test the result and report what changed and what was verified.
+    <section class="dashboard shell" id="dashboard" aria-labelledby="dashboard-title">
+      <div class="section-heading"><div><p class="eyebrow">YOUR COMMAND CENTER</p><h2 id="dashboard-title">ממשיכים בדיוק מכאן</h2></div><p class="section-intro">ההתקדמות נשמרת במכשיר הזה. אפשר להוריד גיבוי ולייבא אותו למכשיר אחר.</p></div>
+      <div id="appNotice" class="notice" role="alert" hidden></div>
+      <div class="dashboard-grid">
+        <article class="panel current-panel" aria-labelledby="current-milestone-title">
+          <div class="panel-topline"><span class="panel-kicker">אבן הדרך הפעילה</span><span class="live-badge"><i></i> ACTIVE</span></div>
+          <p class="milestone-code" id="milestoneCode">01 / CONTROL</p>
+          <h3 id="current-milestone-title">טוען את המסלול…</h3>
+          <p id="milestoneSummary" class="panel-copy"></p>
+          <div class="progress-row"><span>התקדמות באבן הדרך</span><strong id="milestonePercent">0%</strong></div>
+          <div class="progress-track" role="progressbar" aria-label="התקדמות באבן הדרך" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="milestoneBar"><span></span></div>
+          <p class="deliverable" id="milestoneDeliverable"></p>
+        </article>
+        <article class="panel next-panel" id="next-action" aria-labelledby="next-title">
+          <div class="panel-topline"><span class="panel-kicker">NEXT ACTION</span><span class="step-marker">01</span></div>
+          <div class="action-type" id="nextType">BUILD</div>
+          <h3 id="next-title">טוען את הפעולה הבאה…</h3>
+          <p id="nextContext" class="panel-copy"></p>
+          <p class="prerequisites" id="nextPrerequisites"></p>
+          <a class="button button-primary action-link" id="nextLink" href="#curriculum">פתח את השלב <span aria-hidden="true">←</span></a>
+        </article>
+      </div>
+      <div class="stats-grid" aria-label="סיכום התקדמות">
+        <div class="stat-card"><span>משימות שבוצעו</span><strong id="statDone">0<span class="stat-total" id="statTotal">/ 100</span></strong></div>
+        <div class="stat-card"><span>שלבים שהושלמו</span><strong id="statPhases">0<span class="stat-total" id="statPhaseTotal">/ 25</span></strong></div>
+        <div class="stat-card"><span>זמן משוער שנותר</span><strong id="statHours">—</strong></div>
+        <div class="stat-card"><span>מצב השמירה</span><strong class="save-status" id="saveStatus">מקומי</strong></div>
+      </div>
+    </section>
 
-GAME CONTEXT
-This site teaches a beginner toward a high-quality third-person/first-person comic-inspired Doctor Doom action game in Unreal Engine. The curriculum grows through Unreal fundamentals, Blueprints, Enhanced Input, cameras, Blender, modeling, skeletal meshes, rigging, FBX, animation, retargeting, Control Rig, combat, Niagara, audio, facial animation/lip sync, Sequencer, world building, AI, UI, save systems, optimization and packaging.
+    <section class="roadmap-section shell" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-heading"><div><p class="eyebrow">THE FOUR MILESTONES</p><h2 id="roadmap-title">מבסיס לדמות חיה</h2></div><p class="section-intro">כל אבן דרך מסתיימת בתוצר שאפשר להפעיל ולבחון. שלבים מומלצים זמינים כשצריך אותם.</p></div>
+      <div class="milestone-grid" id="milestoneGrid"></div>
+    </section>
 
-CORE PROJECT PRINCIPLES
-- One small system at a time.
-- Learn -> build -> test -> improve -> continue.
-- Do not force advanced study before useful building.
-- Doom is the current foundation, but earlier design proposals are replaceable.
-- Third-person is default; first-person should be a genuine character POV with correct hands/body/head-look behavior.
-- Input is action-based and should remain Xbox-ready.
-- Walk, jog/run and sprint should have meaningful movement/animation differences.
-- Armor should be modular where technically useful for construction, wearing/removal, damage and replacement.
-- Systems should be modular and reusable.
-- Story/canon claims are research-driven, not assumed.
+    <section class="curriculum-section shell" id="curriculum" aria-labelledby="curriculum-title">
+      <div class="section-heading"><div><p class="eyebrow">LEARN → BUILD → TEST</p><h2 id="curriculum-title">מסלול העבודה</h2></div><p class="section-intro">בחר שלב, סמן התקדמות, שמור הערות ופתח מקורות רלוונטיים.</p></div>
+      <div class="curriculum-layout">
+        <aside class="curriculum-sidebar" aria-label="התקדמות וסינון">
+          <div class="sidebar-panel"><p class="sidebar-label">התקדמות כוללת</p><strong id="overallPercent">0%</strong><div class="progress-track" role="progressbar" aria-label="התקדמות כוללת" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="overallBar"><span></span></div><p id="overallCaption">המסע מתחיל בצעד אחד.</p></div>
+          <div class="sidebar-panel sidebar-guide"><p class="sidebar-label">הקצב הנכון</p><ol><li>לומדים רק את מה שצריך כרגע.</li><li>בונים חלק קטן שאפשר להפעיל.</li><li>בודקים, מתקנים ומתעדים.</li></ol></div>
+        </aside>
+        <div class="curriculum-main">
+          <div class="toolbar"><label class="search-field"><span class="visually-hidden">חפש בשלבים ובמשאבים</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="searchInput" type="search" placeholder="חפש שלב, פעולה או משאב…" autocomplete="off"></label><label class="select-field"><span class="visually-hidden">סנן שלבים</span><select id="filterSelect"><option value="all">כל השלבים</option><option value="ready">אפשר להתחיל</option><option value="active">בתהליך</option><option value="complete">הושלמו</option><option value="core">שלבי ליבה</option></select></label></div>
+          <p class="result-count" id="resultCount" aria-live="polite"></p>
+          <div class="phase-list" id="phaseList"></div>
+        </div>
+      </div>
+    </section>
 
-RESEARCH POLICY
-For every research-heavy update:
-- Check official/current documentation first.
-- Check current release/version information.
-- Verify every new link.
-- Prefer free resources.
-- Check licenses for models, animations, sounds, images, code and datasets.
-- Label community advice as community advice.
-- Never invent tutorial titles, URLs, licenses, versions or capabilities.
-- Replace obsolete workflows instead of silently keeping them.
-- When sources conflict, document the uncertainty.
-- Record important decisions in RESEARCH_LOG/CHANGELOG.
+    <section class="workspace-section shell" id="workspace" aria-labelledby="workspace-title">
+      <div class="section-heading"><div><p class="eyebrow">YOUR FIELD NOTES</p><h2 id="workspace-title">מרחב העבודה שלך</h2></div><p class="section-intro">הערות, החלטות וגיבוי נמצאים בשליטתך. ייצוא ושחזור עובדים גם בלי חשבון.</p></div>
+      <div class="workspace-grid">
+        <div class="panel notes-panel"><label for="globalNotes" class="panel-kicker">הערות כלליות לפרויקט</label><p class="panel-copy">רעיונות לדמות, תקלות שצריך לבדוק או החלטות שרוצים לזכור.</p><textarea id="globalNotes" rows="8" placeholder="מה גילית היום? מה הצעד הבא במשחק?" spellcheck="true"></textarea><small id="notesSaveHint">נשמר אוטומטית במכשיר הזה</small></div>
+        <div class="panel backup-panel"><span class="panel-kicker">BACKUP / RESTORE</span><h3>ההתקדמות שלך, אצלך</h3><p class="panel-copy">האתר ציבורי, אבל הסימונים וההערות נשמרים בדפדפן שלך. הורד גיבוי כדי להעביר אותם בין מכשירים או לשמור עותק.</p><div class="backup-actions"><button class="button button-primary" id="exportButton" type="button">הורד גיבוי JSON</button><button class="button button-ghost" id="importButton" type="button">ייבא גיבוי</button><input id="importFile" type="file" accept=".json,application/json" hidden></div><p class="backup-fine">ייבוא ממזג התקדמות ושומר גם הערות קיימות. הקובץ נשאר במכשיר שלך.</p><p class="backup-message" id="backupMessage" role="status" aria-live="polite"></p></div>
+      </div>
+    </section>
+  </main>
 
-RESOURCE STANDARD
-For each useful resource, preserve or add when practical:
-title, creator, direct URL, free/paid status, version/date, what it teaches, prerequisites, when to study, Doom relevance, priority, license notes, verification status and last checked date.
-
-CURRICULUM STANDARD
-Each phase should support:
-id, number, title, priority/status, estimated hours, summary, goal, prerequisites, learning outcomes, tasks, exit criteria, resources, notes, research date and version notes.
-
-Each resource should support:
-type, title, creator, URL, free status, version/date, description, prerequisites, Doom relevance, priority, license notes, verification status and last checked.
-
-RECOMMENDED REPOSITORY STRUCTURE
-index.html
-content/curriculum.json
-content/resources.json
-docs/CODEX_INSTRUCTIONS.md
-docs/RESEARCH_LOG.md
-docs/ARCHITECTURE.md
-docs/CHANGELOG.md
-assets/
-tests/
-
-If the project is still a single HTML file, migrate gradually and safely. Preserve current behavior and progress. Do not rewrite merely for style.
-
-UX REQUIREMENTS
-- Clear roadmap and next action.
-- Search and filters.
-- Global, phase and task progress.
-- Estimated study/build time.
-- Prerequisite/dependency visibility.
-- Notes and backups.
-- Research log and changelog.
-- Responsive desktop/mobile layout.
-- RTL Hebrew.
-- Keyboard accessibility and visible focus.
-- Strong contrast and readable typography.
-- Fast load and minimal dependencies.
-
-DESIGN FREEDOM
-Codex is explicitly allowed to improve the visual design and information architecture. It may introduce better dashboards, timelines, cards, progress visualizations, navigation, themes, icons and micro-interactions.
-Do not redesign for novelty alone. Preserve important information. Keep the Doom-inspired identity unless usability evidence supports a change. Validate mobile and desktop after major changes.
-
-GOOD FEATURES TO ADD WHEN JUSTIFIED
-weekly planner; automatic next-step engine; prerequisite validation; phase completion percentages; remaining-hour estimates; learn-vs-build separation; milestone dashboard; research/changelog viewers; resource verification; outdated-link checking; curriculum import/export; progress backup/restore; versioning/migrations; troubleshooting library; glossary; skill matrix; tool/license matrix; printable view; offline-friendly behavior; local-only analytics.
-Only add a feature when it improves learning or reduces friction.
-
-CODE QUALITY
-- Prefer simple maintainable code.
-- Use semantic HTML and modular JS/CSS.
-- Avoid duplicated data and unstable IDs.
-- Preserve localStorage progress.
-- Never silently destroy user data.
-- Add migrations when saved-data formats change.
-- Handle malformed/missing data safely.
-- Keep dependencies minimal.
-
-TESTING / DONE
-Before declaring a change complete:
-- Page loads without console errors.
-- Navigation/search/filter/progress/notes/export work.
-- New features work.
-- Responsive layout works.
-- New/changed external links are verified.
-- Content claims are verified.
-- Existing progress remains usable.
-- The next human/Codex session can understand what changed.
-
-VERSION CONTROL
-Use small logical commits or PRs when available. Use descriptive messages. Do not mix unrelated work without documenting it. For risky work, prefer a branch/PR.
-
-CHALLENGE OLD DECISIONS
-User ideas are proposals, not immutable requirements. When research or engineering shows a better approach:
-1. Identify the limitation.
-2. Propose the better option briefly.
-3. Implement it when safe.
-4. Record significant replacements in the changelog/research log.
-
-FUTURE RESEARCH SOURCES
-Prioritize Epic Games official documentation/samples, Blender official documentation/training, Fab with license verification, Mixamo/Adobe terms, reputable open-source projects, and current community evidence from forums/Reddit/YouTube. Clearly label community evidence.
-
-FIRST REPOSITORY AUDIT
-Before a major rewrite, inspect and report:
-1. file structure
-2. architecture
-3. curriculum structure
-4. bugs
-5. outdated/missing resources
-6. design/UX issues
-7. highest-value improvements
-8. proposed next steps
-Then implement the highest-value safe improvements in small testable increments.
-
-LONG-TERM GOAL
-Turn this from a static curriculum into a maintainable Learning OS that can evolve its research, guide the next action, track progress, document decisions and grow with the Doctor Doom game.
-
-IMPORTANT
-The GitHub repository is the source of truth for Codex. The deployed site is the learning interface. Keep them synchronized.
-</textarea>
-<div class="checks"><button class="btn" onclick="navigator.clipboard.writeText(document.getElementById('codexPrompt').value)">העתק את כל הוראות Codex</button><span class="small">הקישור היחיד למסור ל-Codex צריך להיות קישור ה-GitHub Repository של האתר. שמור את הוראות ה-Master האלה גם כ-docs/CODEX_INSTRUCTIONS.md בתוך ה-Repository.</span></div>
-</div>
-</details>
-<div class="top"><nav class="nav"><div class="brand">DOOM <span>//</span> LEARNING OS</div><div class="navlinks"><a href="#start">התחלה</a><a href="#roadmap">מפת הדרך</a><a href="#curriculum">תכנית</a><a href="#weekly">4 שבועות</a><a href="#collab">שיתוף</a></div><button class="btn" id="focusBtn">מצב Focus</button><button class="btn" id="exportBtn">ייצוא התקדמות</button></nav></div>
-<div class="wrap">
-<section class="hero" id="start">
-<div><div class="small">MASTER LEARNING PLAN • UE 5.8 + BLENDER 4.5 LTS</div><h1>בנה את <em>DOOM</em> שלך<br>שלב אחרי שלב.</h1><p>תכנית לימודים מעשית לבניית משחק אקשן־הרפתקה בגוף שלישי עם מעבר ל־First Person, אנימציות, דמות, עולם, אפקטים, אודיו, UI, AI, סיקוונסים ואופטימיזציה. העיקרון: לומדים → בונים חלק קטן → בודקים → משפרים → ממשיכים.</p><div class="controls"><input id="search" class="search" placeholder="חפש נושא, כלי, Tutorial או מערכת…"><select id="filter" class="select"><option value="all">כל השלבים</option><option value="must">חובה</option><option value="recommended">מומלץ</option><option value="later">מאוחר יותר</option></select><button class="btn" id="resetBtn">איפוס התקדמות</button></div></div>
-<div class="heroCard"><h3>מצב הפרויקט</h3><div class="mini"><div class="stat"><b id="doneCount">0</b><span>משימות שהושלמו</span></div><div class="stat"><b id="phaseCount">25</b><span>שלבים</span></div><div class="stat"><b>∞</b><span>יכולת הרחבה</span></div></div><div style="margin:16px 0 6px;display:flex;justify-content:space-between;font-size:12px;color:var(--muted)"><span>התקדמות כוללת</span><span id="pct">0%</span></div><div class="progress"><i id="bar"></i></div><p style="font-size:12px">ההתקדמות נשמרת בדפדפן. אפשר לייצא JSON ולהעביר למחשב אחר.</p></div>
-</section>
-<section id="roadmap"><div class="sectionHead"><div><h2>מפת הדרך</h2><p>מהבסיס עד אבטיפוס משחק אמיתי.</p></div></div><div class="roadmap" id="roadmapGrid"></div></section>
-<div class="layout"><aside class="side"><div class="sideCard"><h3>ניווט</h3><div class="toc" id="toc"></div><hr style="border-color:var(--line);border-width:1px 0 0;margin:16px 0"><div class="small">כל קישור חיצוני נפתח בטאב חדש. מקורות רשמיים של Epic ו-Blender מועדפים כשיש כאלה. תוכן המסלול בנוי בצורה מודולרית כדי שאפשר יהיה לערוך אותו בקלות בהמשך.</div></div></aside>
-<main class="main" id="curriculum"></main></div>
-<section id="weekly"><div class="sectionHead"><div><h2>תכנית 4 שבועות — נקודת פתיחה</h2><p>לא לומדים הכול לפני שמתחילים. מתחילים בפרוטוטייפ מהר, ואז מרחיבים.</p></div></div><div class="week"><div class="weekCard"><b>שבוע 1</b><span>Unreal Basics + First Hour + Third Person Template + Blueprints בסיסיים</span></div><div class="weekCard"><b>שבוע 2</b><span>Character setup + Enhanced Input + Camera + movement prototype</span></div><div class="weekCard"><b>שבוע 3</b><span>Blender fundamentals + modeling workflow + asset organization</span></div><div class="weekCard"><b>שבוע 4</b><span>Rigging + FBX → UE + Animation Blueprint + retargeting + first Doom placeholder</span></div></div></section>
-<section id="collab"><div class="sectionHead"><div><h2>שיתוף, עריכה ו-Codex</h2><p>התוכן מופרד לוגית מהעיצוב כדי שיהיה קל לשנות את האתר בעתיד.</p></div></div><div class="phase"><div class="phaseBody"><div class="goal"><b>איך זה בנוי:</b> כל שלב והמשאבים שלו נמצאים בתוך מבנה נתונים ברור ב-JavaScript. Codex יכול לערוך כותרות, קישורים, סדר, תגיות, שעות לימוד, קריטריוני יציאה ולהוסיף שלבים בלי לפרק את ה-UI.</div><div class="checks"><label class="checkpill"><input type="checkbox" id="collabLocal"> אפשר מצב עריכה מקומי</label><button class="btn" id="editExport">ייצא תוכן JSON</button><button class="btn" id="showSchema">הצג מבנה נתונים</button></div><textarea class="notes" id="globalNotes" placeholder="הערות כלליות לפרויקט / החלטות חדשות / דברים ש-Codex צריך לבדוק…"></textarea><p class="small">הערה: גרסה זו היא אתר סטטי עם שמירת התקדמות מקומית. היא לא יוצרת בעצמה הרשאת עריכה ציבורית משותפת על שרת. לשיתוף אמיתי דרך קישור ולשינוי מקור משותף, פריסת הקבצים ב-GitHub Pages/Cloudflare Pages וכדומה היא השלב הבא; GitHub מתאים במיוחד לעבודה של Codex על קוד האתר.</p></div></div></section>
-<div class="footer">נבנה כמערכת לימוד ארוכת־טווח. מומלץ לבדוק מחדש גרסאות תוכנה, זמינות tutorial וקישורים לפני שמתחילים שלב. מקורות עדכניים שנבדקו: Unreal Engine 5.8 Documentation; Blender Fundamentals 4.5 LTS; Mixamo; Rhubarb Lip Sync.</div>
-</div>
-<div class="modal" id="modal"><div class="modalBox"><button class="btn" id="closeModal">סגור</button><h3 id="modalTitle">JSON</h3><div class="code" id="modalContent"></div></div></div>
-<script>
-const resources = [
-{id:'p1',no:1,title:'כניסה לעולם Unreal Engine',tag:'חובה',hours:'3–5 ש׳',summary:'היכרות עם Launcher, יצירת Project, Viewport, Actors, Content Browser, Blueprint בסיסי ו-Packaging.',goal:'בסיום: לפתוח פרויקט 3D ולהבין איפה נמצא כל דבר בלי להילחץ מהממשק.',tasks:['צור פרויקט Third Person חדש','פתח Play In Editor','שמור Map חדש','הוסף Actor אחד ושנה לו Properties'],resources:[
-['Epic','Your First Hour in Unreal Engine','סדרת וידאו רשמית; UE 5.3+; חינמית','בניית משחק 3D קטן, Enhanced Input, Blueprints, UI ו-Packaging.','https://dev.epicgames.com/documentation/unreal-engine/first-hour-in-unreal-engine'],
-['Epic','Unreal Engine for New Users','מסלול רשמי למתחילים','מסלול בסיס הכולל התקנה, Project, Editor, Viewport ו-Packaging.','https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-for-new-users'],
-['Epic','Create your First Project in Unreal','תיעוד רשמי; UE 5.8','יצירת Project וסקירת תבניות First/Third Person.','https://dev.epicgames.com/documentation/unreal-engine/create-your-first-project-in-unreal'] ]},
-{id:'p2',no:2,title:'Third Person Template — הבסיס של Doom',tag:'חובה',hours:'2–4 ש׳',summary:'להבין את הדמות המוכנה, התנועה, המצלמה, ה-Blueprints וה-Animation setup שה-Template כבר מספק.',goal:'לא לכתוב מחדש מערכות שכבר קיימות ב-Unreal; להשתמש בתבנית כשלד ולשנות אותה בהמשך.',tasks:['הפעל את Third Person Template','עקוב אחרי BP_ThirdPersonCharacter','אתר Skeletal Mesh ו-Animation Blueprint','החלף placeholder mesh'],resources:[
-['Epic','Third Person Template','UE 5.8; תיעוד רשמי','תבנית עם character, movement, jump, basic animation וסביבת בדיקה.','https://dev.epicgames.com/documentation/unreal-engine/third-person-template-in-unreal-engine'],
-['Epic','Templates Reference','UE 5.8; תיעוד רשמי','הבדלים בין First Person ו-Third Person templates.','https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-templates-reference'] ]},
-{id:'p3',no:3,title:'Blueprints — לוגיקת משחק ללא קוד כבד',tag:'חובה',hours:'5–8 ש׳',summary:'Variables, functions, events, references, branches, interfaces וארגון Blueprints.',goal:'להיות מסוגל לבנות מכניקת משחק קטנה בעצמך ולא רק להעתיק nodes.',tasks:['בנה interactable פשוט','צור Function ו-Event','עבוד עם Variables ו-References','ארגן Blueprint גדול ל-Functions/Components'],resources:[
-['Epic','Blueprint Foundations','UE 5.8; תיעוד רשמי','מושגי הבסיס של Blueprints, typed data, execution flow ו-classes.','https://dev.epicgames.com/documentation/unreal-engine/blueprint-foundations'],
-['Epic','Blueprints Workflows','UE 5.8; תיעוד רשמי','מדריכים קצרים ל-Macros, Functions, References ו-gameplay systems.','https://dev.epicgames.com/documentation/unreal-engine/blueprint-workflows'],
-['Epic','Introduction to Blueprints','UE 5.8; תיעוד רשמי','איך Blueprint graphs עובדים ומה התפקיד שלהם.','https://dev.epicgames.com/documentation/en-us/unreal-engine/introduction-to-blueprints-visual-scripting-in-unreal-engine'] ]},
-{id:'p4',no:4,title:'Enhanced Input + Xbox-ready architecture',tag:'חובה',hours:'3–5 ש׳',summary:'Input Actions, Mapping Contexts, Modifiers, Triggers ו-remapping. להתחיל עם Keyboard/Mouse אבל לשמור Xbox-ready.',goal:'כל פעולה במשחק מיוצגת כ-Action לוגי ולא hardcoded key.',tasks:['Create Move/Look/Jump/Sprint actions','צור Mapping Context','בדוק controller input','בנה שכבת remapping בסיסית'],resources:[
-['Epic','Enhanced Input','UE 5.8; תיעוד רשמי','Input Actions, Mapping Contexts, Modifiers, Triggers, contextual input ו-runtime remapping.','https://dev.epicgames.com/documentation/unreal-engine/enhanced-input-in-unreal-engine'],
-['Epic','Input Overview','UE 5.8; תיעוד רשמי','סקירה והגדרות input במנוע.','https://dev.epicgames.com/documentation/unreal-engine/input-overview-in-unreal-engine'] ]},
-{id:'p5',no:5,title:'Camera — Third Person + First Person אמיתי',tag:'חובה',hours:'5–8 ש׳',summary:'מצלמה חופשית, third-person טבעי, מעבר בלחיצה ל-true first person ויחס נכון בין head/look/body.',goal:'אב-טיפוס שבו Doom מרגיש כמו אותה דמות בשתי נקודות המבט.',tasks:['Third-person camera follow','Free orbit + sensitivity','Toggle first/third person','First-person hands/body test'],resources:[
-['Epic','Gameplay Camera System Quick Start','UE 5.8; תיעוד רשמי','בניית מערכת מצלמה מודרנית בתוך Unreal.','https://dev.epicgames.com/documentation/unreal-engine/gameplay-camera-system-quick-start'],
-['Epic','Templates Reference','UE 5.8','סקירת First Person/Third Person templates.','https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-templates-reference'] ]},
-{id:'p6',no:6,title:'Blender Fundamentals',tag:'חובה',hours:'6–12 ש׳',summary:'Navigation, Interface, modeling, modifiers, materials, collections ו-workflow בסיסי.',goal:'להיות מסוגל לפתוח reference, לערוך mesh, להפריד חלקים ולשמור קבצים בצורה נקייה.',tasks:['סיים First Steps','תרגל Edit Mode','תרגל modifiers','ארגן Collections'],resources:[
-['Blender Studio','Blender Fundamentals 4.5 LTS — First Steps','חלקים מסוימים חינמיים','UI, navigation, selection, transforms, saving ו-collections.','https://studio.blender.org/training/blender-fundamentals-45-lts/chapter/blender_4-5_lts_first-steps/'],
-['Blender Guru','Blender Beginner Tutorial Series','חינמי','סדרת מתחילים קצרה: UI, transforms, modeling, materials, lighting ו-rendering.','https://www.blenderguru.com/posts/blender-beginner-tutorial-series'],
-['Blender','Blender 4.5 Manual','תיעוד רשמי','Reference לשימוש שוטף ב-Blender 4.5.','https://docs.blender.org/manual/en/4.5/'] ]},
-{id:'p7',no:7,title:'Modeling for Game Assets',tag:'חובה',hours:'8–15 ש׳',summary:'Hard-surface basics, topology בסיסית, seams, UVs, materials והפרדה לחלקים.',goal:'מודל placeholder איכותי ולא בהכרח Doom final. למד את ה-pipeline, לא את היצירה המושלמת הראשונה.',tasks:['Model simple armor piece','UV unwrap','Create 2–3 materials','Split asset into logical parts'],resources:[
-['Blender','Modeling Manual','Reference','כלי modeling, modifiers ו-workflow.','https://docs.blender.org/manual/en/4.5/modeling/'],
-['Blender','UV Editing Manual','Reference','UV unwrap וארגון texture space.','https://docs.blender.org/manual/en/4.5/modeling/meshes/uv/'] ]},
-{id:'p8',no:8,title:'Doom Character Asset Pipeline',tag:'חובה',hours:'10–20 ש׳',summary:'מעבר מ-reference front/back למודל עבודה, modular armor וארגון assets.',goal:'לבנות גרסה ראשונה של Doom שאפשר להכניס למנוע, גם אם היא עדיין לא final-quality.',tasks:['Base body mesh','Armor modular parts','Cape as separate asset','Clean naming + folders'],resources:[
-['Epic','Setting Up a Character in Unreal Engine','UE 5.8; תיעוד רשמי','Templates, character assets, Animation Blueprints ו-Content Examples.','https://dev.epicgames.com/documentation/unreal-engine/setting-up-a-character-in-unreal-engine'],
-['Epic','Skeletal Mesh FBX Pipeline','UE 5.8; תיעוד רשמי','Pipeline למעבר meshes, animations, morph targets, UVs ו-LODs.','https://dev.epicgames.com/documentation/unreal-engine/fbx-skeletal-mesh-pipeline'] ]},
-{id:'p9',no:9,title:'Rigging + Skinning',tag:'חובה',hours:'8–20 ש׳',summary:'Armature, weights, deformation, facial bones/morph targets ו-rig שנוח לאנימציה.',goal:'Rig יציב שמאפשר תנועה בלי clipping מוגזם ובלי לשבור את השריון.',tasks:['Create/prepare humanoid armature','Weight paint','Test deformation','Separate facial strategy'],resources:[
-['Blender','Rigging Manual','Reference','Armatures, skinning, constraints ו-animation setup.','https://docs.blender.org/manual/en/4.5/animation/armatures/'],
-['Epic','IK Rig','UE 5.8; תיעוד רשמי','IK goals, solvers ו-procedural pose adjustment.','https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-ik-rig'] ]},
-{id:'p10',no:10,title:'Blender → Unreal FBX Integration',tag:'חובה',hours:'4–8 ש׳',summary:'Scale, skeleton, import settings, materials, morph targets ו-debug של assets.',goal:'להעביר mesh + skeleton + animation בצורה יציבה ולדעת לאבחן import problems.',tasks:['Export test FBX','Import Skeletal Mesh','Verify skeleton','Test animation/morphs'],resources:[
-['Epic','Importing Skeletal Meshes Using FBX','UE 5.8; תיעוד רשמי','Export/import skeletal meshes ו-verify results.','https://dev.epicgames.com/documentation/unreal-engine/importing-skeletal-meshes-using-fbx'],
-['Epic','FBX Skeletal Mesh Pipeline','UE 5.8; תיעוד רשמי','Animations + Morph Targets + materials + LODs supported by pipeline.','https://dev.epicgames.com/documentation/unreal-engine/fbx-skeletal-mesh-pipeline'] ]},
-{id:'p11',no:11,title:'Animation Blueprint + State Machine',tag:'חובה',hours:'8–15 ש׳',summary:'Event Graph, AnimGraph, blend spaces, state machines, montages, layered poses ו-parameters.',goal:'Idle → walk → jog → run → sprint בצורה חלקה, עם בסיס שניתן להרחיב.',tasks:['Create Anim BP','Velocity-driven locomotion','Blend Space','States + transitions'],resources:[
-['Epic','Animation Blueprints','UE 5.8; תיעוד רשמי','יצירה ושליטה ב-complex animation behavior.','https://dev.epicgames.com/documentation/unreal-engine/animation-blueprints-in-unreal-engine'],
-['Epic','Third Person Template','UE 5.8','לראות איך template מחבר character movement ו-animation assets.','https://dev.epicgames.com/documentation/unreal-engine/third-person-template-in-unreal-engine'] ]},
-{id:'p12',no:12,title:'IK + Retargeting',tag:'חובה',hours:'5–10 ש׳',summary:'IK Rig, IK Retargeter ו-foot/hand alignment כדי להשתמש באנימציות ממקורות שונים.',goal:'לקחת animation קיימת ולהעביר אותה לדמות Doom בלי לאבד איכות.',tasks:['Create source IK Rig','Create target IK Rig','Retarget animation','Fix hands/feet'],resources:[
-['Epic','IK Rig','UE 5.8','IK + retargeting ecosystem.','https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-ik-rig'],
-['Epic','IK Rig Animation Retargeting','UE 5.8','העברת animations בין skeletons שונים עם IK.','https://dev.epicgames.com/documentation/unreal-engine/ik-rig-animation-retargeting-in-unreal-engine'],
-['Mixamo','Mixamo','חינמי עם חשבון','ספריית characters/rigs/animations ו-upload של character מותאם.','https://www.mixamo.com/'] ]},
-{id:'p13',no:13,title:'Control Rig',tag:'מומלץ',hours:'5–10 ש׳',summary:'Rigging/posing/animation ישירות בתוך Unreal, במיוחד שימושי ל-cinematics ול-adjustments קטנים.',goal:'לדעת לתקן pose או לבנות control קטן בלי לחזור ל-Blender בכל שינוי.',tasks:['Open Control Rig sample','Create basic Control Rig','Pose character','Test Sequencer animation'],resources:[
-['Epic','Control Rig Quick Start','UE 5.8; תיעוד רשמי','יצירה ואנימציה של rigs ישירות ב-Unreal.','https://dev.epicgames.com/documentation/unreal-engine/how-to-create-control-rigs-in-unreal-engine'],
-['Epic','Control Rig','UE 5.8; תיעוד רשמי','מערכת rigging/animation בזמן אמת.','https://dev.epicgames.com/documentation/unreal-engine/control-rig-in-unreal-engine'],
-['Fab','Control Rig Samples Pack','חינמי; Epic','Sample rigs מוכנים, כולל mannequin, StackOBot ועוד.','https://www.fab.com/listings/2ce3fe44-9ee6-4fa7-99fc-b9424a402386'] ]},
-{id:'p14',no:14,title:'Free Animation Sources',tag:'מומלץ',hours:'3–6 ש׳',summary:'Mixamo + template animations + retargeting. להשתמש כ-placeholder לפני שמייצרים/רוכשים motion איכותי משלך.',goal:'להכניס במהירות locomotion בסיסי ולבדוק gameplay לפני השקעת זמן באנימציות final.',tasks:['Import idle/walk/run','Retarget','Blend and clean','Mark where custom animation is needed'],resources:[
-['Mixamo','Mixamo animation library','חינמי עם חשבון','אלפי animations ו-rigging אוטומטי לדמויות.','https://www.mixamo.com/'],
-['Epic','Content Examples','חינמי דרך Epic/Fab','דוגמאות animation ו-rigging ללמידה.','https://dev.epicgames.com/documentation/unreal-engine/setting-up-a-character-in-unreal-engine'] ]},
-{id:'p15',no:15,title:'Doom Movement Quality Pass',tag:'חובה',hours:'8–20 ש׳',summary:'walk, jog, run, sprint, idle, turn, stop, acceleration, deceleration, camera behavior ו-feel.',goal:'Doom צריך להרגיש כבד ומדויק, לא כמו mannequin עם speed multiplier.',tasks:['Distinct locomotion clips','Start/stop polish','Turn behavior','Idle micro-motion'],resources:[
-['Epic','Animation Blueprints','Reference','Blend state לפי parameters ומצב.','https://dev.epicgames.com/documentation/unreal-engine/animation-blueprints-in-unreal-engine'],
-['Epic','IK Rig','Reference','Procedural adjustments for feet/hand placement.','https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-ik-rig'] ]},
-{id:'p16',no:16,title:'Gameplay Systems + Combat Architecture',tag:'חובה',hours:'10–25 ש׳',summary:'State machine ל-combat, attacks, hit detection, damage, cooldowns, target selection ואפקטים — בארכיטקטורה מודולרית.',goal:'לבנות מערכת קרב שאפשר להרחיב בלי Blueprint אחד ענק.',tasks:['Create gameplay states','Build one complete attack loop','Separate damage from visuals','Create reusable combat components'],resources:[
-['Epic','Blueprint Foundations','UE 5.8','בסיס לארכיטקטורת Blueprint.','https://dev.epicgames.com/documentation/unreal-engine/blueprint-foundations'],
-['Epic','Your First Game in Unreal','UE 5.8','המשך מסלול רשמי: countdown, timer, checkpoints ו-gameplay systems.','https://dev.epicgames.com/documentation/unreal-engine/your-first-game-in-unreal-engine'] ]},
-{id:'p17',no:17,title:'Niagara + Doom Powers / VFX',tag:'מומלץ',hours:'8–15 ש׳',summary:'Particles, emitters, systems, materials, gameplay-driven VFX ו-performance awareness.',goal:'אפקט ראשון שמופעל מה-gameplay וניתן למחזור במערכות שונות.',tasks:['Create/modify Niagara System','Trigger from Blueprint','Add impact/energy feedback','Profile effect cost'],resources:[
-['Epic','Niagara Overview','UE 5.8; תיעוד רשמי','מערכת VFX והמבנה: Systems, Emitters, Modules, Parameters.','https://dev.epicgames.com/documentation/unreal-engine/overview-of-niagara-effects-for-unreal-engine'] ]},
-{id:'p18',no:18,title:'Audio + Voice Pipeline',tag:'מומלץ',hours:'6–12 ש׳',summary:'SFX layering, 3D attenuation, voice import, mix priorities ו-MetaSounds לפי הצורך.',goal:'כל פעולה במשחק מקבלת feedback קולי אמין; voice pipeline מסודר מהקלטה עד המשחק.',tasks:['Import and organize sounds','3D attenuation','One gameplay-driven audio event','Voice file naming + processing'],resources:[
-['Epic','MetaSounds Quick Start','UE 5.8','יצירת procedural/gameplay-driven sound sources.','https://dev.epicgames.com/documentation/unreal-engine/metasounds-quick-start'],
-['Epic','MetaSounds Overview','UE 5.8','DSP graph, procedural audio ו-data-driven audio.','https://dev.epicgames.com/documentation/unreal-engine/metasounds-the-next-generation-sound-sources-in-unreal-engine'] ]},
-{id:'p19',no:19,title:'Facial Rig + Lip Sync',tag:'מאוחר יותר',hours:'10–25 ש׳',summary:'Face bones/morphs, jaw/lips/eyes/brows, speech timing ו-audio-driven mouth cues.',goal:'ב-Victor הלא-מסכה, תזמון הפה צריך לעקוב אחרי הדיבור ולא רק להתחיל ולהיגמר יחד.',tasks:['Define facial controls','Create test dialogue','Generate phoneme timing','Drive morph targets/controls'],resources:[
-['Rhubarb','Rhubarb Lip Sync','Open source; MIT','כלי CLI שמייצר timing של mouth shapes מתוך הקלטת קול; outputs TSV/XML/JSON.','https://github.com/DanielSWolf/rhubarb-lip-sync'],
-['Fab','Zebra Sample','חינמי; Epic','Production-quality face/body rig example עם morphs ו-jaw/lip/brow/eye controls.','https://www.fab.com/listings/8bff9602-7087-4d86-b680-f55b263e8382'] ]},
-{id:'p20',no:20,title:'Sequencer + Cinematics + Dialogue',tag:'מומלץ',hours:'8–16 ש׳',summary:'Level Sequences, cameras, character animation, dialogue staging, transitions ו-render.',goal:'סצנת דיאלוג אחת עובדת מתחילתה ועד סופה בתוך אותה מערכת כמו המשחק.',tasks:['Create Level Sequence','Animate camera','Bind character','Blend in gameplay/out'],resources:[
-['Epic','Cinematics and Sequencer','UE 5.8','Sequencer, cameras, characters, lights ו-rendered cinematic workflows.','https://dev.epicgames.com/documentation/unreal-engine/cinematics-and-movie-making-in-unreal-engine'],
-['Epic','Sequencer Overview','UE 5.8','Level Sequence assets, tracks, keyframes ו-actors.','https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-sequencer-movie-tool-overview'] ]},
-{id:'p21',no:21,title:'World Building + Environment Pipeline',tag:'מומלץ',hours:'12–30 ש׳',summary:'Grayboxing, modular environments, lighting, materials, set dressing, interactables ו-NPC spaces.',goal:'לבנות אזור אחד קטן אך איכותי שמרגיש כמו מקום אמיתי ולא כמו test map.',tasks:['Graybox one district/room','Lighting pass','Set dressing','Add 3 interactable details'],resources:[
-['Epic','Unreal Engine Documentation','UE 5.8','מקור מרכזי ל-Working with Content, Virtual Worlds ו-Visuals.','https://dev.epicgames.com/documentation/en-us/unreal-engine'],
-['Epic','First Hour / Module 1','UE 5.8','יצירת level, navigation ו-packaging בסיסי.','https://dev.epicgames.com/documentation/unreal-engine/module-1-install-ue-and-create-your-first-project'] ]},
-{id:'p22',no:22,title:'AI + Enemy Behaviors',tag:'מאוחר יותר',hours:'10–25 ש׳',summary:'AI Controller, Blackboard, Behavior Tree, perception, patrol/chase/decision loops ו-debugging.',goal:'אויב אחד עם behavior אמין ומובן לפני שמייצרים כמה סוגים.',tasks:['AI Controller','Blackboard','Behavior Tree','Sight/chase/debug'],resources:[
-['Epic','Behavior Trees','UE 5.8','Behavior Trees + Blackboard לאוכלוסיות NPC.','https://dev.epicgames.com/documentation/unreal-engine/behavior-trees-in-unreal-engine'],
-['Epic','Behavior Tree Quick Start','UE 5.8','AI שרואה שחקן, רודף ומפסיק מרדף.','https://dev.epicgames.com/documentation/unreal-engine/behavior-tree-in-unreal-engine---quick-start-guide'] ]},
-{id:'p23',no:23,title:'UI + Settings + Accessibility',tag:'מומלץ',hours:'8–16 ש׳',summary:'HUD, pause menu, settings, controller bindings, sensitivity, subtitles, graphics options ו-feedback.',goal:'שחקן יכול לשנות הגדרות בלי לשבור gameplay; כל input נגיש דרך action mapping.',tasks:['HUD','Pause menu','Settings screen','Input remap prototype'],resources:[
-['Epic','First Hour in Unreal','UE 5.8','HUD, UI widgets ו-pause/end screens.','https://dev.epicgames.com/documentation/unreal-engine/first-hour-in-unreal-engine'],
-['Epic','Enhanced Input','UE 5.8','בסיס ל-runtime remapping.','https://dev.epicgames.com/documentation/unreal-engine/enhanced-input-in-unreal-engine'] ]},
-{id:'p24',no:24,title:'Save System + Data Architecture',tag:'מומלץ',hours:'5–12 ש׳',summary:'SaveGame, checkpoints, persistent progression, data assets ו-versioning.',goal:'לשמור progress אמין בלי לקשור כל מערכת ל-save code שלה.',tasks:['Create SaveGame class','Save checkpoint','Load checkpoint','Test corrupted/old data path'],resources:[
-['Epic','Saving and Loading Your Game','UE 5.8','SaveGame classes, checkpoints ו-state persistence.','https://dev.epicgames.com/documentation/unreal-engine/saving-and-loading-your-game'] ]},
-{id:'p25',no:25,title:'Optimization + Debugging + Packaging',tag:'חובה בסוף',hours:'12–30 ש׳',summary:'Profiling, memory, draw calls, animation/VFX costs, packaged builds, crash/debug habits ו-PC/Xbox-ready input architecture.',goal:'לא לסיים עם prototype שעובד רק בתוך Editor. לבנות build שאפשר למדוד, לבדוק ולשחזר.',tasks:['Package a build','Profile gameplay scene','Measure VFX/animation cost','Run clean install test'],resources:[
-['Epic','Unreal Engine 5.8 Documentation','UE 5.8','מקור מרכזי לכלי Performance, Packaging, AI, Visuals ו-World Building.','https://dev.epicgames.com/documentation/en-us/unreal-engine'],
-['Epic','Packaging Unreal Engine Projects','Reference','Packaging workflows per target platform.','https://dev.epicgames.com/documentation/unreal-engine/packaging-your-project'],
-['Epic','Unreal Engine 5.8 Release Notes','עדכני ל-5.8','שינויים ב-input, Control Rig, audio ועוד; חשוב לבדוק לפני workflow משמעותי.','https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-8-release-notes'] ]}
-];
-
-const roadmapLabels=[['1–5','UE Core','Editor → BP → Input → Camera'],['6–10','Character','Blender → Modeling → Rig → FBX'],['11–15','Animation','AnimBP → IK → Rig → Movement'],['16–20','Gameplay','Combat → VFX → Audio → Face → Cinematics'],['21–25','Game','World → AI → UI → Save → Optimize']];
-const state=JSON.parse(localStorage.getItem('doomLearningState')||'{}');
-function save(){localStorage.setItem('doomLearningState',JSON.stringify(state));renderProgress()}
-function renderProgress(){const total=resources.reduce((s,p)=>s+p.tasks.length,0);let done=0;resources.forEach(p=>p.tasks.forEach((_,i)=>{if(state[p.id+'_'+i])done++}));const pct=Math.round(done/total*100);document.getElementById('doneCount').textContent=done;document.getElementById('pct').textContent=pct+'%';document.getElementById('bar').style.width=pct+'%';}
-function cardHtml(r,p,idx){const [type,title,meta,desc,url]=r;const key=p.id+'_'+idx;const checked=!!state[key];return `<article class="resource" data-text="${(title+' '+meta+' '+desc+' '+p.title).toLowerCase()}"><div class="rhead"><span class="rtype">${type}</span><h4>${title}</h4></div><div class="rmeta"><span class="tag">${meta}</span><span class="tag">שלב ${p.no}</span></div><p>${desc}</p><a href="${url}" target="_blank" rel="noopener">פתח מקור ↗</a></article>`}
-function renderRoadmap(){document.getElementById('roadmapGrid').innerHTML=roadmapLabels.map(x=>`<div class="rnode"><strong>${x[0]}</strong><span><b>${x[1]}</b><br>${x[2]}</span></div>`).join('')}
-function renderToc(){document.getElementById('toc').innerHTML=resources.map(p=>`<a href="#${p.id}">${p.no}. ${p.title}</a>`).join('')}
-function render(){const q=document.getElementById('search').value.trim().toLowerCase();const f=document.getElementById('filter').value;const main=document.getElementById('curriculum');main.innerHTML=resources.filter(p=>{const fitQ=!q||(p.title+' '+p.summary+' '+p.goal+' '+p.resources.flat().join(' ')).toLowerCase().includes(q);const fitF=f==='all'||(f==='must'&&p.tag.includes('חובה'))||(f==='recommended'&&p.tag.includes('מומלץ'))||(f==='later'&&p.tag.includes('מאוחר'));return fitQ&&fitF}).map(p=>`<section class="phase" id="${p.id}" data-no="${p.no}"><div class="phaseTop"><div class="phaseNo">${p.no}</div><div><h3>${p.title}</h3><div class="small">${p.summary}</div></div><div class="meta">${p.tag} • ${p.hours}</div></div><div class="phaseBody"><div class="goal"><b>מה צריך להשיג:</b> ${p.goal}</div><div class="checks">${p.tasks.map((t,i)=>{const key=p.id+'_'+i;return `<label class="checkpill"><input type="checkbox" data-key="${key}" ${state[key]?'checked':''}> ${t}</label>`}).join('')}</div><div class="resources">${p.resources.map((r,i)=>cardHtml(r,p,i)).join('')}</div><div class="exit"><b>Exit Criteria:</b> אל תעבור לשלב הבא עד שהמערכת הזו עובדת מספיק טוב כדי לשמש בסיס לשלב הבא.</div><textarea class="notes" data-note="${p.id}" placeholder="הערות לשלב ${p.no}…">${state['note_'+p.id]||''}</textarea></div></section>`).join('');bind();renderProgress();}
-function bind(){document.querySelectorAll('input[data-key]').forEach(el=>el.addEventListener('change',e=>{state[e.target.dataset.key]=e.target.checked;save()}));document.querySelectorAll('textarea[data-note]').forEach(el=>el.addEventListener('input',e=>{state['note_'+e.target.dataset.note]=e.target.value;save()}));document.querySelectorAll('.resource').forEach(el=>{const txt=el.dataset.text; if(document.getElementById('search').value.trim() && !txt.includes(document.getElementById('search').value.trim().toLowerCase()))el.classList.add('hidden')});}
-function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='doom-learning-progress.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-function exportContent(){const blob=new Blob([JSON.stringify(resources,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='doom-learning-content.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-function showSchema(){document.getElementById('modalTitle').textContent='מבנה נתונים עבור Codex';document.getElementById('modalContent').textContent=JSON.stringify({id:'p1',no:1,title:'...',tag:'חובה',hours:'...',summary:'...',goal:'...',tasks:['...'],resources:[['Source','Title','Meta','Description','https://...']]},null,2);document.getElementById('modal').classList.add('open')}
-document.getElementById('search').addEventListener('input',render);document.getElementById('filter').addEventListener('change',render);document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('לאפס את כל ההתקדמות המקומית?')){Object.keys(state).forEach(k=>delete state[k]);save();render()}});document.getElementById('exportBtn').addEventListener('click',exportProgress);document.getElementById('editExport').addEventListener('click',exportContent);document.getElementById('showSchema').addEventListener('click',showSchema);document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('modal').classList.remove('open'));document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')document.getElementById('modal').classList.remove('open')});document.getElementById('globalNotes').value=localStorage.getItem('doomGlobalNotes')||'';document.getElementById('globalNotes').addEventListener('input',e=>localStorage.setItem('doomGlobalNotes',e.target.value));document.getElementById('collabLocal').addEventListener('change',e=>{document.body.dataset.edit=e.target.checked?'on':'off'});document.getElementById('focusBtn').addEventListener('click',()=>{const incomplete=resources.find(p=>p.tasks.some((_,i)=>!state[p.id+'_'+i]));if(incomplete)document.getElementById(incomplete.id)?.scrollIntoView({behavior:'smooth'});});renderRoadmap();renderToc();render();
-</script>
-</body></html>
+  <footer class="site-footer"><div class="shell footer-inner"><div><strong>DOOM <span>//</span> LEARNING OS</strong><p>לומדים. בונים. בודקים. משפרים.</p></div><div><a href="https://github.com/nevoklein100-png/doom-learning-os" target="_blank" rel="noopener noreferrer">מאגר האתר ↗</a><span>המשאבים החיצוניים דורשים בדיקת זמינות ורישיון לפני שימוש בהפקה.</span></div></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

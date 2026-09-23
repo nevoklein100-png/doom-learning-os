@@ -65,7 +65,7 @@ If evidence changes the strategy, update docs/DECISION_LOG.md, docs/CURRENT_STAT
 
 ## Current default
 
-Until the checkpoint is reached, prefer small, durable, testable work over large speculative rewrites.
+For future large work whose scope has not been decided, prefer durable, testable work over speculative rewrites until the checkpoint. On 2026-09-23 the owner explicitly requested a complete, shareable Learning OS ready for regular use, so the site build moved ahead. The question remains open for larger game and cloud implementation choices.
 
 This is not a commitment to wait or to build everything now. It is a strategy for preserving optionality while producing useful progress.
 

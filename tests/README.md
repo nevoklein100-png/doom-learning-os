@@ -1,27 +1,7 @@
-# Tests
+# Validation
 
-Baseline checks:
-- Parse curriculum/resource JSON.
-- Validate unique phase and resource IDs.
-- Validate referenced resource IDs.
-- Validate resource URL presence and syntax.
-- Verify index.html required UI elements.
-- Preserve doomLearningState and doomGlobalNotes.
+Run `node tests/validate.mjs` to check JSON structure, unique IDs, references, prerequisite cycles, milestone coverage, app asset wiring, legacy migration markers, and the Pages publishing marker.
 
-Browser checks:
-- load without console errors;
-- search/filter;
-- task persistence;
-- notes persistence;
-- exports;
-- focus mode;
-- modal behavior;
-- responsive layout.
+Before publishing a user-visible change, inspect the rendered site on desktop and mobile. Exercise the affected interactions: next action, task progress and reload persistence, search/filter, notes, backup export/import, and link navigation. The JSON check alone cannot verify browser behavior or resource licenses.
 
-Future cloud checks:
-- authentication;
-- migration from localStorage;
-- RLS allow/deny tests;
-- private data isolation;
-- public share isolation;
-- production/preview environment configuration.
+Future cloud work requires migration, authentication, RLS allow/deny, cross-user isolation, public-share isolation, and preview/production configuration checks.

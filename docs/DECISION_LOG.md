@@ -1,5 +1,31 @@
 # Decision Log
 
+## 2026-09-23 — Publish the canonical site from the original repository
+The original repository owner invited `NevoKlein` with Write access, the invitation was accepted, and GitHub now reports push permission. The original `nevoklein100-png/doom-learning-os` repository is canonical and hosts GitHub Pages from `main`. The fork was used temporarily while access was unavailable.
+
+## 2026-09-23 — Publish a usable Learning OS now
+### Previous approach
+Keep the early static baseline and favor small preparatory changes while the AI timing question remained open.
+
+### New approach
+The owner explicitly requested a complete, shareable site ready for regular use. Publish a dependency-free static Learning OS on GitHub Pages, with canonical JSON content, milestones, versioned local progress, and backup/import. Defer account-backed sync until cross-device use is an explicit need.
+
+### Why and evidence
+The existing public repository and static content can be hosted on GitHub Pages without a paid service. The previous site duplicated content and lacked a real next-action dashboard. A static implementation is reversible and preserves the curriculum, research, and browser data for any later architecture. GitHub's Pages documentation confirms public repositories on GitHub Free can publish static HTML, CSS, and JavaScript from a branch.
+
+### Compatibility and reversibility
+The original task keys are unchanged. Legacy browser storage remains in place after migration. Backups contain all personal notes and progress. The site can later adopt cloud sync without replacing GitHub as the content source of truth.
+
+## 2026-09-23 — Replace the all-phase prerequisite chain
+### Previous approach
+Every phase depended on the immediately preceding phase, including optional and later topics.
+
+### New approach
+Use actual prerequisites between related skills and systems. Keep the numerical order as a suggested reading path while allowing independent work. Core phases drive the next-action engine; recommended and later phases remain visible.
+
+### Why
+The old chain forced Control Rig, extra animation-source study, facial work, world building, and AI before unrelated core work could advance. That contradicted the character-first build and test strategy in the project handoff. Existing phase/task IDs and saved progress remain stable, so the change is reversible.
+
 ## 2026-09-22 — Direction change
 ### Decision
 Adopt a character-first development strategy centered on Doctor Doom.

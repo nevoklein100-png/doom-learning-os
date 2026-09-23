@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-23 — Shareable Learning OS
+- Replaced the duplicated inline curriculum with a static, modular site that reads canonical curriculum, resource, and milestone JSON.
+- Added a milestone dashboard, exact next action, prerequisite-aware phases, specific exit criteria, task-kind labels, search, filters, progress, and notes.
+- Added versioned local state, migration of the original browser keys, malformed-data recovery, and merge-safe backup export/import.
+- Replaced the strict 25-phase prerequisite chain with dependencies that let core Doom prototyping proceed without optional topics blocking it.
+- Added GitHub Pages publishing support and browser/structured-data validation.
+- Published the canonical site from the original repository after Write access was granted and the invitation accepted.
+- Corrected the Content Examples resource URL and recorded the current link-availability review.
+
 ## 2026-09-23
 - Added docs/AI_TIMING_STRATEGY.md with a structured build-now vs wait vs middle-ground decision framework.
 - Documented the AI timing question as an open decision rather than a prediction.

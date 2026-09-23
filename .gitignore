@@ -13,3 +13,6 @@ node_modules/
 # Local exports
 doom-learning-progress.json
 doom-learning-content.json
+
+# Browser review artifacts
+.playwright-cli/

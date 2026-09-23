@@ -2,6 +2,10 @@
 
 ## 2026-09-24 — Live browser walkthrough
 
+### Follow-up shareability improvement
+
+- **Social previews had no image.** Added a branded 1200×630 PNG for Open Graph and Twitter large-image cards, with an editable SVG source. Checked the rendered image, local HTTP 200 response, metadata, PNG signature, and dimensions.
+
 ### Finding and fix
 
 - **Mobile section navigation was missing.** Below 760px the primary links were hidden without a replacement. Added a compact second row to the sticky header with links to the dashboard, milestones, curriculum, and workspace. Verified the row at 390px and 320px, with no horizontal overflow; the workspace link lands below the sticky header.
@@ -19,7 +23,7 @@
 
 ### Current result
 
-No actionable release defects remain after the mobile navigation fix. `node tests/validate.mjs`, `node tests/state.mjs`, JavaScript syntax checks, and `git diff --check` pass. Cross-device sync remains an explicit future product choice; the current browser-local storage and backup/import behavior is explained in the site.
+No actionable release defects remain after the mobile-navigation and social-preview fixes. `node tests/validate.mjs`, `node tests/state.mjs`, JavaScript syntax checks, and `git diff --check` pass. Cross-device sync remains an explicit future product choice; the current browser-local storage and backup/import behavior is explained in the site.
 
 ### Remaining product boundary
 

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">DOOM Learning OS</title>
+  <desc id="description">A hands-on learning path for building a playable Doctor Doom foundation.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#172a1d"/>
+      <stop offset=".55" stop-color="#0b1510"/>
+      <stop offset="1" stop-color="#080e0b"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#789b53" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#789b53" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0v36" fill="none" stroke="#a6c77d" stroke-opacity=".1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="315" cy="315" r="355" fill="url(#glow)"/>
+  <rect x="40" y="40" width="500" height="550" rx="24" fill="url(#grid)" stroke="#617a54" stroke-opacity=".65"/>
+  <circle cx="290" cy="310" r="191" fill="none" stroke="#9bb875" stroke-opacity=".28"/>
+  <circle cx="290" cy="310" r="158" fill="none" stroke="#9bb875" stroke-opacity=".22"/>
+  <path d="M290 124 385 180 405 291 433 495 345 510 321 405 259 405 235 510 147 495 175 291 195 180Z" fill="#12241a" stroke="#9cbd78" stroke-width="3"/>
+  <path d="m218 197 72-43 72 43-8 97-31 37h-66l-31-37Z" fill="#1d3827" stroke="#d6bd77" stroke-width="3"/>
+  <path d="m220 254 42 8 28-15 28 15 42-8m-93 36h46m-100 53h154m-126 64h98" fill="none" stroke="#c5e596" stroke-width="5" stroke-linecap="round"/>
+  <path d="m194 183-37 44-24 164m254-208 37 44 24 164" fill="none" stroke="#c4a968" stroke-width="3"/>
+  <text x="80" y="558" fill="#d6bd77" font-family="Arial, sans-serif" font-size="15" letter-spacing="4">CHARACTER FIRST · SYSTEMS SECOND</text>
+
+  <circle cx="628" cy="133" r="5" fill="#c5e596"/>
+  <text x="650" y="140" fill="#d6bd77" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="4">PROJECT DOOM / FIELD GUIDE</text>
+  <text x="620" y="276" fill="#f2f1e9" font-family="Arial, sans-serif" font-size="96" font-weight="800" letter-spacing="-3">DOOM</text>
+  <text x="626" y="320" fill="#c5e596" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8">LEARNING OS</text>
+  <path d="M626 356h490" stroke="#617a54" stroke-width="2"/>
+  <text x="626" y="418" fill="#f2f1e9" font-family="Arial, sans-serif" font-size="39" font-weight="700">Build a playable</text>
+  <text x="626" y="466" fill="#c5e596" font-family="Arial, sans-serif" font-size="39" font-weight="700">Doctor Doom,</text>
+  <text x="626" y="514" fill="#f2f1e9" font-family="Arial, sans-serif" font-size="39" font-weight="700">one step at a time.</text>
+  <text x="626" y="562" fill="#b8c8b5" font-family="Arial, sans-serif" font-size="16" letter-spacing="2">LEARN  ·  BUILD  ·  TEST  ·  IMPROVE</text>
+  <text x="626" y="590" fill="#91a58d" font-family="Arial, sans-serif" font-size="13">nevoklein100-png.github.io/doom-learning-os</text>
+</svg>

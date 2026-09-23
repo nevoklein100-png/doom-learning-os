@@ -4,7 +4,7 @@
 
 ### Follow-up shareability improvement
 
-- **Social previews had no image.** Added a branded 1200×630 PNG for Open Graph and Twitter large-image cards, with an editable SVG source. Checked the rendered image, local HTTP 200 response, metadata, PNG signature, and dimensions.
+- **Social previews had no image.** Added a branded 1200×630 PNG for Open Graph and Twitter large-image cards, with an editable SVG source. Checked the rendered image, metadata, PNG signature, and dimensions. After publishing, the image returned HTTP 200 from GitHub Pages and its SHA-256 matched the checked-in asset.
 
 ### Finding and fix
 
@@ -13,6 +13,7 @@
 ### Walkthrough results
 
 - The live page loads 25 phases and 54 resource cards; the logo image loads successfully.
+- Live Open Graph/Twitter tags point to the public PNG preview, which loads as `image/png` at the declared 1200×630 size.
 - The next-action link opens the matching phase and scrolls it into view.
 - Task completion, global notes, and phase notes persist after reload.
 - Search returns matching phases and a useful empty state; ready, active, core, and completed filters update the result count and phase status.

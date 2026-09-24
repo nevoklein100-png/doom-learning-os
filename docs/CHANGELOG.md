@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-24 — Independent product retest
+- Re-ran the full browser journey across desktop and a 390px phone layout: phase navigation, progress, notes, reload persistence, search, filters, no-results state, backup download/import, and sharing.
+- No release defects were found. Structured validation, state tests, browser requests, and console checks passed.
+
 ## 2026-09-24 — Social preview card
 - Added a branded 1200×630 PNG preview image with its editable SVG source and connected Open Graph and Twitter large-image metadata.
 - Added checks for social metadata and PNG format/dimensions; visually inspected the exported image.

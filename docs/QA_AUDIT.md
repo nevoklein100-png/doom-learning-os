@@ -1,5 +1,20 @@
 # Site QA Audit
 
+## 2026-09-24 — Independent full-product retest
+
+### Scope and results
+
+- Ran `node tests/validate.mjs` and `node tests/state.mjs`: both passed. The curriculum remains valid at 25 phases, 100 tasks, 54 resource records, and four milestones; local-state migration, malformed-state recovery, backup validation, and backup merging also passed.
+- Used the complete browser journey against a local HTTP build. The next-action link opened phase 1; completing a task updated the next action and progress totals; task state, phase notes, and global notes remained after reload.
+- Verified search with a matching query (`Niagara`), the core-phase filter, and the no-results state with a nonmatching query.
+- Downloaded a real backup JSON file, then imported it through the visible file picker. The site confirmed the merge and produced no console errors or warnings.
+- Tested the share control, loaded all three JSON datasets with HTTP 200 responses, and found no browser console errors or warnings.
+- Visually reviewed full desktop and 390px phone layouts. Navigation, dashboard, milestone cards, curriculum cards, notes, and backup controls remained readable and within the viewport.
+
+### Finding
+
+No actionable defects or worthwhile changes were found in this retest. The earlier mobile-navigation and social-preview fixes remain effective.
+
 ## 2026-09-24 — Live browser walkthrough
 
 ### Follow-up shareability improvement
